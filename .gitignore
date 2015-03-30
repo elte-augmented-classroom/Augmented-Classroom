@@ -256,3 +256,5 @@ sysinfo.txt
 ehthumbs.db
 Thumbs.db
 ProjectSettings/GraphicsSettings.asset
+.dropbox
+*.dat
