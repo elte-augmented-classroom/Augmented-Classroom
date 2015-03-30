@@ -219,6 +219,7 @@ pip-log.txt
 
 #custom
 [Ll]ibrary/
+[Pp]roject[Ss]ettings/*
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
