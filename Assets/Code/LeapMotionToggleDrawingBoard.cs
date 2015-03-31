@@ -8,23 +8,21 @@ public class LeapMotionToggleDrawingBoard : MonoBehaviour {
 	public GameObject handsGO;
 	public GameObject playerGO;
 	public Transform mainCameraPosition;
-	bool toggleUseLeapMotion;
+	bool toggleUseLeapMotion = true;
 	
 	void OnMouseDown(){
 		if(toggleUseLeapMotion){
-			renderer.material = leapMotionOnUseMat;
-			toggleUseLeapMotion = false;
-			
 			StartCoroutine(MoveCamera());
-			
-			
+			toggleUseLeapMotion = false;
+			renderer.material = leapMotionOnUseMat;
 		}else{
-			renderer.material = leapMotionNoticeCtrlMat;
+			StopAllCoroutines();
 			toggleUseLeapMotion = true;
+			renderer.material = leapMotionNoticeCtrlMat;
+			handsGO.GetComponent<HandController>().DestroyAllHands();
 		}
 		handsGO.SetActive(!toggleUseLeapMotion);
 		playerGO.SetActive(toggleUseLeapMotion);
-		
 	}
 	
 	IEnumerator MoveCamera(){
