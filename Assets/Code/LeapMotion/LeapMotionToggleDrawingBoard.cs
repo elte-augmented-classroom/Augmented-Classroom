@@ -32,8 +32,10 @@ public class LeapMotionToggleDrawingBoard : MonoBehaviour {
 		Quaternion dest_rotation = Quaternion.Inverse(transform.localRotation);
 		Vector3 dest_position = transform.position;
 		dest_position.x += 10f;
+		
 		while(transform.position.x+10f < mainCameraPosition.position.x){
 			mainCameraPosition.position = Vector3.Lerp(mainCameraPosition.position, dest_position, time_moving);
+//			mainCameraPosition.rotation = Quaternion.LookRotation(transform.position);
 			mainCameraPosition.rotation = Quaternion.Lerp(mainCameraPosition.rotation, dest_rotation, time_moving);
 			yield return null;
 		}
